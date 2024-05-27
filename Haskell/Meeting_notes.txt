@@ -1,0 +1,47 @@
+
+quasiquoter: syntax that is specific to ghc haskell
+gets translated into haskell code
+
+G2Q interface
+we have some kind of condition we want to be true
+not very flexible
+somewhat non composable
+
+match function and solution function
+
+SMTEN (detailed) VS G2Q (specific)
+
+goal:
+combine both
+
+data Sym a =
+Sym a = symbolic a
+
+f::Int -> Maybe Int
+ we want to change this to
+
+ Out: Sym Int
+
+to do that:
+
+f::Int->Sym Int -> Sym Int
+
+ all::Sym a
+empty:: Sym a
+single::a -> Sym a
+union::Sym a -> Sym a -> Sym a
+
+
+
+for code:-
+all based on g2
+revise haskell
+readings
+Lazy Counterfactual Symbolic execution
+install and be able to run g2
+pull repository from github and run using cabal
+
+File Quasiquoter
+Understand lines 133-157
+Creat Sym file
+Define Sym

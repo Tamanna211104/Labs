@@ -1,0 +1,39 @@
+#To make a guess the word game 
+#To ask user for input 
+f = open("WordList.txt","r")
+
+def guess_word():
+	WordList = []
+	with open('WordList.txt') as file:
+		for line in file:
+	WordList.append(line.strip())
+    		WordList = random.choice(WordList)
+    	letters_guessed = []
+    	tries = 6
+	word_guessed = ['_' for i in range(len(word))]
+
+    while tries > 0 and "_" in word_guessed:
+        print("".join(word_guessed))
+        print("You have", tries, "tries left.")
+        guess = input("Guess a letter: ").lower()
+
+        if guess in letters_guessed:
+            print("You already guessed that letter. Try again.")
+        elif guess in word:
+            letters_guessed.append(guess)
+            for i in range(len(word)):
+                if word[i] == guess:
+                    word_guessed[i] = guess
+        else:
+            tries -= 1
+            letters_guessed.append(guess)
+            print("Incorrect. Try again.")
+
+    if "_" not in word_guessed:
+        print("Congratulations! You won! The word was:", word)
+    else:
+        print("Sorry, you ran out of tries. The word was:", word)
+
+if __name__ == "__main__":
+    guess_word()
+
